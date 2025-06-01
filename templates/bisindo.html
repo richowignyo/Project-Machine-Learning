@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<section class="bg-white py-12">
+  <div class="max-w-6xl mx-auto px-6 text-left">
+    <h2 class="text-2xl font-bold text-blue-800 mb-8">Bisindo Information</h2>
+    <p class="text-gray-700 text-sm mb-6 max-w-6xl">
+      Berikut adalah representasi visual dari alfabet Bahasa Isyarat Indonesia (BISINDO). Setiap gambar menunjukkan bentuk tangan untuk masing-masing huruf A–Z.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+      <div class="bg-blue-50 rounded-lg shadow-sm p-4 flex flex-col items-center">
+        <img src="{{ url_for('static', filename='avatar/' ~ letter ~ '.jpg') }}" alt="Isyarat {{ letter }}" class="w-24 h-24 object-contain mb-2">
+        <p class="text-blue-800 font-semibold text-lg">{{ letter }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endblock %}
